@@ -6,13 +6,17 @@ class Item < ApplicationRecord
   belongs_to :scheduled_delivery
   belongs_to :shipping_fee_status
 
-  validates :category_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :sales_status_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :scheduled_delivery_id, numericality: { other_than: 1, message: "can't be blank" }
-  validates :shipping_fee_status_id, numericality: { other_than: 1, message: "can't be blank" }
+  validates :item_name, presence: true
+  validates :item_info, presence: true
+  validates :item_price, presence: true, format: {with: /\A[0-9]+\z/}, numericality: { in:300..9999999 }
+  validates :category_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :sales_status_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :scheduled_delivery_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :shipping_fee_status_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
 
 
   belongs_to :user
   has_one_attached :image
+
 end
