@@ -14,6 +14,7 @@ class Item < ApplicationRecord
   validates :sales_status_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :scheduled_delivery_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :shipping_fee_status_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
+  validates :image, presence: true
 
 
   belongs_to :user
