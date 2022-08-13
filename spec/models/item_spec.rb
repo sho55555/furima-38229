@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-
   describe '商品情報入力' do
     before do
       @item = FactoryBot.build(:item)
@@ -12,7 +11,6 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
     end
-
 
     context '入力した商品情報が登録できない時' do
       it 'imageが空だと出品できない' do
@@ -61,11 +59,10 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Item price can't be blank")
       end
       it 'item_priceが全角数字だと出品できない' do
-        @item.item_price = "３００"
+        @item.item_price = '３００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item price is not a number")
+        expect(@item.errors.full_messages).to include('Item price is not a number')
       end
-      
     end
   end
 end
