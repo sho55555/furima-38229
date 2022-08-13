@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
   validates :item_name, presence: true
   validates :item_info, presence: true
-  validates :item_price, presence: true, format: { with: /\A[0-9]+\z/ }, numericality: { in: 300..9_999_999 }
+  validates :item_price, presence: true, format: { with: /\A[0-9]+\z/ }, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, only_integer: true}
   validates :category_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }
   validates :sales_status_id, presence: true, numericality: { other_than: 1, message: "can't be blank" }

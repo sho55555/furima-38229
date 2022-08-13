@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   protect_from_forgery
 
   def index
-    @items = Item.all
+    # @items = Item.all
   end
 
   def new
