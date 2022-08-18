@@ -12,6 +12,10 @@ RSpec.describe OrderShipping, type: :model do
       it '全ての値が正しく入力されていれば購入できる' do
         expect(@order_shipping).to be_valid
       end
+
+      it 'buildingがあっても購入できる' do
+        expect(@order_shipping).to be_valid
+      end
     end
 
     context '入力した購入情報で商品を購入できない' do
