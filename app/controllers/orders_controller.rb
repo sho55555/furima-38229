@@ -5,6 +5,9 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
     @order_shipping = OrderShipping.new
     redirect_to root_path if user_signed_in? && current_user.id == @item.user.id
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def create
