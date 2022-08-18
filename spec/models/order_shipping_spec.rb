@@ -13,7 +13,7 @@ RSpec.describe OrderShipping, type: :model do
         expect(@order_shipping).to be_valid
       end
 
-      it 'buildingがあっても購入できる' do
+      it 'buildingが空でも購入できる' do
         expect(@order_shipping).to be_valid
       end
     end
