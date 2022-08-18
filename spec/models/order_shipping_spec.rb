@@ -14,6 +14,7 @@ RSpec.describe OrderShipping, type: :model do
       end
 
       it 'buildingが空でも購入できる' do
+        @order_shipping.building = ''
         expect(@order_shipping).to be_valid
       end
     end
